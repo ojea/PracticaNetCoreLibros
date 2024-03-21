@@ -1,0 +1,23 @@
+﻿@model List<Libro>
+
+@if(Model != null)
+{
+    @foreach(Libro libro in Model)
+    {
+        <div class="card" style="max-width:18rem">
+            <p>@libro.Titulo</p>
+            <img style="width:100px; height:100px" />
+            <p>@libro.Precio €</p>
+            <a class="btn btn-danger" asp-controller="Libros" asp-action="Carrito" asp-route-idEliminar="@libro.IdLibro">
+                Eliminar
+            </a>
+        </div>
+    }
+
+    <a class="btn btn-info" asp-controller="Libros" asp-action="Comprar">
+        Comprar
+    </a>
+} else
+{
+    <h1>No hay libros en el carrito</h1>
+}
